@@ -14,9 +14,11 @@ https://www.kaggle.com/competitions/birdsong-recognition/data
 - Convert it into 3 channels
 - Data augmentation: time shift
 - Create a spectrogram
+```
                 # 3 = channel
                 # 224: number of mels
                 # 313 = sample_rate / hop_len * time = sample_rate / (n_fft/2) * time
+```
 
 - Add augmentation into spectrogram
 
@@ -25,15 +27,16 @@ https://www.kaggle.com/competitions/birdsong-recognition/data
 - Based on row_id, get part of the test_csv with the same row_id
 - On [[test.csv]](`/kaggle/input/birdcall-check/test.csv`), it has a colmn named `site`, whose value = `site_1`, `site_2` or `site_3`
 - If `site` == `site_1` or `site_2`, for a same `audio_id`, it has multiple rows. It has a column named `seconds`, which is the end time of this `audio_id` and start time = end time -5s
-- If `site` == `site_3`, every `audio_id`, it only has one row, which represents the whole audio 
+
+  elif `site` == `site_3`, every `audio_id`, it only has one row, which represents the whole audio 
 
 <b>Site3</b>
   - Resample
   - Cut time as 5 s
 
-      If <5s: Pad time
-
-      Else: Cut the time based on start_time:end_time
+      if <5s: Pad time
+      
+      else: Cut the time based on start_time:end_time
   - Add it into 3 channels
   - Convert it into spectro gram >> the shape would be batch, 3, 224, 313
   - Put it into dataloader
