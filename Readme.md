@@ -4,9 +4,11 @@
 
 ## Dataset
 https://www.kaggle.com/competitions/birdsong-recognition/data
+- Sample testdata: https://www.kaggle.com/datasets/shonenkov/birdcall-check
+
 
 ## Train Data Preprocessing
-(`/kaggle/input/birdcall-check/train_audio/`)
+(`/kaggle/input/birdsong-recognition/train_audio/`)
 - Resample
 - Convert time into 5 minutes: cut or pad
 - Convert it into 3 channels
@@ -19,7 +21,7 @@ https://www.kaggle.com/competitions/birdsong-recognition/data
 - Add augmentation into spectrogram
 
 ## Test Data Preprocessing 
-(`/kaggle/input/birdcall-check/test_audio/`)
+(`/kaggle/input/birdsong-recognition/test_audio/`)
 - Based on row_id, get part of the test_csv with the same row_id
 - On [[test.csv]](`/kaggle/input/birdcall-check/test.csv`), it has a colmn named `site`, whose value = `site_1`, `site_2` or `site_3`
 - If `site` == `site_1` or `site_2`, for a same `audio_id`, it has multiple rows. It has a column named `seconds`, which is the end time of this `audio_id` and start time = end time -5s
@@ -45,6 +47,12 @@ https://www.kaggle.com/competitions/birdsong-recognition/data
 - It would be 224, 313
 - Put it into dataloader, batch_size = 1
 - When it is on test, if shape[0] > 16, make it into iter
+
+## Platform
+Kaggle 
+
+## Script
+
 
 
 ## Refer
