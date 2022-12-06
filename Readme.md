@@ -1,4 +1,4 @@
-# Bird Classification
+# Birdcall Classification
 ## Kaggle
 [[Cornel Birdcall Identification]](https://www.kaggle.com/competitions/birdsong-recognition/overview)
 
